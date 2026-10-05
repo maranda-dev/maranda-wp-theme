@@ -25,3 +25,8 @@
 .mm-contact-form br{display:none}.mm-contact-form>p{margin-top:0}.mm-contact-form>p:empty{display:none}
 
 .mm-parcours-role{font-weight:600;color:var(--mm-muted);font-size:18px}.mm-parcours .wp-block-list>li{margin-bottom:16px}.mm-map-section{margin-bottom:65px}.mm-header .wp-block-navigation{gap:18px;font-size:13px}@media(min-width:651px) and (max-width:900px){.mm-header{display:block}.mm-header .wp-block-navigation{margin-top:20px}}.mm-journal>.wp-block-heading:first-child{margin-bottom:24px}
+
+/* Keep the page editor content in the original template layout. */
+.mm-editable-content{display:contents}.mm-editable-content.mm-editable-content>*{margin-block-start:0}
+
+.mm-privacy-content.mm-privacy-content>h2{margin-block-start:46px}

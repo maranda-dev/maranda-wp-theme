@@ -43,3 +43,9 @@ Les champs restent modifiables dans **Apparence → Personnaliser → Annonce te
 Les valeurs du thème précédent servent de valeur de reprise tant que le nouveau thème
 n’a pas de réglage propre. Aucun message personnel supplémentaire n’est exporté depuis
 la base WordPress vers le dépôt.
+
+
+## Modifier les pages
+Depuis la version 0.1.7, les textes et sections de l’accueil, À propos, Profil professionnel, Projets et InspeKT sont des blocs enregistrés dans les pages WordPress. Les modifier dans **Pages → Modifier**, sans remplacer leur modèle. La page Blog permet de modifier son introduction ; la liste des articles reste gérée par le thème. La notice de confidentialité est également dans le contenu de sa page.
+
+Les mises à jour du thème ne réécrivent pas les contenus des pages. Les fichiers `data/editable-pages/` conservent seulement les blocs initiaux de référence pour une nouvelle installation ; aucune migration automatique ne remplace les modifications de l’utilisateur. Contact, carte et vigies gardent leur fonctionnement spécialisé.
