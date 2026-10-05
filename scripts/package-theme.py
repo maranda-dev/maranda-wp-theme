@@ -24,7 +24,7 @@ with zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED) as archive:
     for source in sorted(paths):
         relative = source.relative_to(ROOT)
         assert source.suffix in {'.php', '.css', '.html', '.json', '.js', '.svg', '.png', '.jpg', '.webp', '.txt'}
-        info = zipfile.ZipInfo('maranda-wp-theme/' + relative.as_posix(), (2026, 1, 1, 0, 0, 0))
+        info = zipfile.ZipInfo('bsir-wordpress/' + relative.as_posix(), (2026, 1, 1, 0, 0, 0))
         info.external_attr = 0o100644 << 16
         info.compress_type = zipfile.ZIP_DEFLATED
         archive.writestr(info, source.read_bytes())

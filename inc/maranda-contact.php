@@ -70,7 +70,7 @@ function maranda_receive_contact(WP_REST_Request $request) {
     $expires = is_array($window) ? (int) ($window['expires'] ?? 0) : time() + DAY_IN_SECONDS;
     set_transient($day, ['count' => $count + 1, 'expires' => $expires], max(1, $expires - time()));
     $body = "Message envoyé depuis maranda.dev\n\nNom : " . $name . "\nCourriel : " . $email . "\n\n" . $message;
-    $sent = wp_mail(get_option('admin_email'), 'Nouveau message — maranda.dev', $body, ['Reply-To: ' . $email]);
+    $sent = wp_mail(get_option('maranda_contact_recipient', get_option('admin_email')), 'Nouveau message — maranda.dev', $body, ['Reply-To: ' . $email]);
     if (!$sent) return new WP_Error('contact_failed', 'Le message n’a pas pu être envoyé. Veuillez réessayer plus tard.', ['status' => 503]);
     return new WP_REST_Response(['message' => 'Merci, ton message a été transmis.'], 201);
 }
