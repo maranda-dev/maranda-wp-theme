@@ -1,0 +1,36 @@
+name: Vérifier et publier le thème
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier la syntaxe PHP
+        run: find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n 1 php -l
+      - name: Vérifier les mises à jour GitHub
+        run: php scripts/test-github-updates.php
+      - name: Construire le thème installable
+        run: python3 scripts/package-theme.py
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: validate
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier le tag et préparer le ZIP
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python3 scripts/package-theme.py "$RELEASE_TAG"
+      - name: Publier la release stable
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: gh release create "$RELEASE_TAG" dist/*.zip dist/SHA256SUMS --verify-tag --title "maranda $RELEASE_TAG" --generate-notes

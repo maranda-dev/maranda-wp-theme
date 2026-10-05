@@ -1,5 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
+define('MARANDA_THEME_VERSION', '0.1.1');
+require_once get_theme_file_path('inc/github-updates.php');
 add_action('after_setup_theme', static function () {
     add_theme_support('wp-block-styles');
     add_theme_support('editor-styles');
@@ -7,7 +9,7 @@ add_action('after_setup_theme', static function () {
     add_editor_style('assets/maranda.css');
 });
 add_action('wp_enqueue_scripts', static function () {
-    wp_enqueue_style('maranda', get_theme_file_uri('assets/maranda.css'), [], '0.1.3');
+    wp_enqueue_style('maranda', get_theme_file_uri('assets/maranda.css'), [], MARANDA_THEME_VERSION);
 });
 /* Keep existing content types available; do not write settings or rewrite rules in a preview. */
 add_action('init', static function () {
@@ -283,7 +285,7 @@ add_action('save_post_mm_vigie', static function (int $post_id): void {
 });
 add_action('wp_enqueue_scripts', static function () {
  if (!is_post_type_archive('mm_vigie') && !is_singular('mm_vigie')) return;
- wp_add_inline_style('maranda', <<<'CSS'
+ $vigie_css = <<<'CSS'
 .card[data-astro-cid-oqe7gpm4] { min-width: 0px; overflow: hidden; border: 1px solid rgb(213, 218, 215); border-radius: var(--radius); background: rgb(255, 255, 255); box-shadow: rgba(34, 54, 84, 0.08) 0px 8px 24px; }
 .card__visual[data-astro-cid-oqe7gpm4] { position: relative; height: 9.5rem; overflow: hidden; background: linear-gradient(145deg, rgb(9, 87, 151), rgb(34, 54, 84)); color: rgb(255, 255, 255); }
 .card__visual[data-astro-cid-oqe7gpm4]::after { position: absolute; inset: auto -10% 1.5rem; height: 3.4rem; background: repeating-linear-gradient(115deg, rgb(0, 111, 169) 0px, rgb(0, 111, 169) 2rem, rgb(125, 135, 149) 2rem, rgb(125, 135, 149) 3rem, rgb(255, 255, 255) 3rem, rgb(255, 255, 255) 3.45rem, rgb(34, 54, 84) 3.45rem, rgb(34, 54, 84) 4.5rem); content: ""; transform: translate(var(--offset)) skewY(-5deg); opacity: 0.88; }
@@ -346,7 +348,7 @@ a[data-astro-cid-oqe7gpm4] span[data-astro-cid-oqe7gpm4] { font-size: 1rem; }
 .rr-method .container, .rr-services .container, .rr-about .container, .rr-contact .container, .rr-vigie .container, .rr-profile .container { width: min(100% - 3rem, 90rem); }
 .rr-method .eyebrow, .rr-services .eyebrow, .rr-about .eyebrow, .rr-contact .eyebrow, .rr-vigie .eyebrow, .rr-profile .eyebrow { color: var(--rr-blue); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
 .rr-method .inner-head, .rr-services .inner-head, .rr-about .inner-head, .rr-contact .inner-head, .rr-vigie .page-head { position: relative; isolation: isolate; min-height: 31rem; padding: clamp(5rem, 8vw, 8rem) 0px; background: var(--rr-charcoal); color: rgb(255, 255, 255); }
-.rr-method .inner-head::before, .rr-services .inner-head::before, .rr-about .inner-head::before, .rr-contact .inner-head::before, .rr-vigie .page-head::before { position: absolute; z-index: -2; inset: 0px; background: linear-gradient(90deg, rgba(27, 35, 41, 0.95) 0%, rgba(27, 35, 41, 0.85) 45%, rgba(27, 35, 41, 0.4) 75%), url("https://www.maranda.dev/wp-content/themes/bsir-wordpress/assets/astro/route-quebec-hero.CETkoF_9_Z15aTvx.webp") center 58% / cover no-repeat; content: ""; }
+.rr-method .inner-head::before, .rr-services .inner-head::before, .rr-about .inner-head::before, .rr-contact .inner-head::before, .rr-vigie .page-head::before { position: absolute; z-index: -2; inset: 0px; background: linear-gradient(90deg, rgba(27, 35, 41, 0.95) 0%, rgba(27, 35, 41, 0.85) 45%, rgba(27, 35, 41, 0.4) 75%), url("./assets/astro/route-quebec-hero.CETkoF_9_Z15aTvx.webp") center 58% / cover no-repeat; content: ""; }
 .rr-method .inner-head::after, .rr-services .inner-head::after, .rr-about .inner-head::after, .rr-contact .inner-head::after, .rr-vigie .page-head::after { position: absolute; z-index: -1; right: -12rem; bottom: -27rem; width: 48rem; height: 48rem; border: 1px dashed rgba(255, 255, 255, 0.4); border-radius: 50%; content: ""; }
 .rr-method .inner-head .container, .rr-services .inner-head .container, .rr-about .inner-head .container, .rr-contact .inner-head .container, .rr-vigie .page-head .container { margin: 0px auto; }
 .rr-method .inner-head .eyebrow, .rr-services .inner-head .eyebrow, .rr-about .inner-head .eyebrow, .rr-contact .inner-head .eyebrow, .rr-vigie .page-head .eyebrow { color: var(--rr-sky); }
@@ -428,8 +430,8 @@ a[data-astro-cid-oqe7gpm4] span[data-astro-cid-oqe7gpm4] { font-size: 1rem; }
 }
 .rr-vigie{--rr-blue:#095797;--rr-sky:#8dc6e8;--rr-navy:#17375e;--rr-charcoal:#3f403f;--rr-paper:#fff;--rr-line:#d9ddda;--bsir-yellow:#095797;--bsir-line:#d9ddda;--radius:4px;--font-display:Arial,sans-serif;background:#fff;font-family:Arial,sans-serif}
 .rr-vigie .container{margin-inline:auto}.rr-vigie .display{font-weight:800}.rr-vigie .vigie-owner,.rr-vigie .vigie-editorial{background:#fff}.rr-vigie .card{border-radius:4px}.rr-vigie .card__visual{height:auto}.rr-vigie .card__body{min-width:0}.rr-vigie .eyebrow{font-family:monospace}.rr-vigie .card__body h3{overflow-wrap:anywhere}.rr-vigie .listing{padding-top:2rem}.rr-vigie .mm-vigie-detail{max-width:58rem;padding-block:4rem;line-height:1.7}.rr-vigie .mm-vigie-detail img{max-width:100%;height:auto}.rr-vigie .mm-vigie-detail h2{margin-top:2.5rem;color:var(--rr-navy)}
-CSS
- );
+CSS;
+ wp_add_inline_style('maranda', str_replace('./assets/astro/route-quebec-hero.CETkoF_9_Z15aTvx.webp', esc_url_raw(get_theme_file_uri('assets/astro/route-quebec-hero.CETkoF_9_Z15aTvx.webp')), $vigie_css));
 }, 30);
 add_filter('render_block', static function (string $content, array $block): string {
  if (($block['blockName'] ?? '') !== 'core/group' || ($block['attrs']['tagName'] ?? '') !== 'main') return $content;
