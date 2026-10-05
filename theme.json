@@ -1,0 +1,131 @@
+{
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "720px",
+      "wideSize": "1180px"
+    },
+    "color": {
+      "palette": [
+        {
+          "slug": "paper",
+          "name": "Blanc",
+          "color": "#ffffff"
+        },
+        {
+          "slug": "ink",
+          "name": "Encre",
+          "color": "#172e3d"
+        },
+        {
+          "slug": "rust",
+          "name": "Terre",
+          "color": "#a63f27"
+        },
+        {
+          "slug": "muted",
+          "name": "Gris",
+          "color": "#53616a"
+        },
+        {
+          "slug": "line",
+          "name": "Ligne",
+          "color": "#d4cec2"
+        }
+      ]
+    },
+    "typography": {
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "fontFamily": "Arial, Helvetica, sans-serif",
+          "slug": "reading",
+          "name": "Arial"
+        },
+        {
+          "fontFamily": "Arial, Helvetica, sans-serif",
+          "slug": "interface",
+          "name": "Interface"
+        },
+        {
+          "fontFamily": "'JetBrainsMono Nerd Font', 'FiraCode Nerd Font', 'Cascadia Mono', 'DejaVu Sans Mono', monospace",
+          "slug": "mono",
+          "name": "Monospace"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "small",
+          "size": "0.875rem",
+          "name": "Petit"
+        },
+        {
+          "slug": "medium",
+          "size": "1.125rem",
+          "name": "Corps"
+        },
+        {
+          "slug": "large",
+          "size": "1.5rem",
+          "name": "Grand"
+        },
+        {
+          "slug": "x-large",
+          "size": "clamp(2.5rem, 5vw, 4.5rem)",
+          "name": "Titre"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var:preset|color|paper",
+      "text": "var:preset|color|ink"
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|reading",
+      "fontSize": "1.125rem",
+      "lineHeight": "1.7"
+    },
+    "spacing": {
+      "blockGap": "1.5rem"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "var:preset|color|ink"
+        }
+      },
+      "heading": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|reading",
+          "fontWeight": "600",
+          "lineHeight": "1.08",
+          "letterSpacing": "-0.04em"
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var:preset|color|ink",
+          "text": "var:preset|color|paper"
+        },
+        "border": {
+          "radius": "0"
+        }
+      }
+    }
+  },
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "En-tête",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Pied de page",
+      "area": "footer"
+    }
+  ]
+}
