@@ -103,3 +103,7 @@ body:has(.rr-interactive-map) .rr-interactive-map { min-height:100dvh; font-fami
 .rr-map-sidebar__footer button{font-family:Arial,Helvetica,sans-serif}
 .rr-map-app .rr-map-status{bottom:5rem;font-size:14px}
 @media(max-width:760px){.rr-map-app{height:620px;min-height:620px}.rr-map-layout{height:100%;display:block}.rr-map-sidebar{top:0;bottom:0}.rr-map-scrim{position:absolute;inset:0}.rr-map-basemaps{top:4.2rem}.rr-map-stage .leaflet-control-zoom{margin-top:8.4rem}}
+
+/* Give the map the available page width while keeping reading sections narrow. */
+.mm-wrap.mm-map-section{width:calc(100% - 3rem);max-width:none;margin-inline:auto}
+@media(max-width:760px){.mm-wrap.mm-map-section{width:calc(100% - 2rem)}}
