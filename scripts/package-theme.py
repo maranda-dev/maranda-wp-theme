@@ -13,7 +13,7 @@ assert f"define('MARANDA_THEME_VERSION', '{version}');" in (ROOT / 'functions.ph
 assert 'Update URI: https://github.com/maranda-dev/maranda-wp-theme' in header
 if len(sys.argv) > 1:
     assert sys.argv[1] == 'v' + version, 'Le tag et la version du thème diffèrent.'
-paths = [ROOT / 'style.css', ROOT / 'theme.json', ROOT / 'functions.php']
+paths = [ROOT / 'style.css', ROOT / 'theme.json', ROOT / 'functions.php', ROOT / 'screenshot.png']
 for directory in ['assets', 'data', 'inc', 'parts', 'templates']:
     paths.extend(p for p in (ROOT / directory).rglob('*') if p.is_file())
 assert (ROOT / 'templates/index.html') in paths
