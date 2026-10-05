@@ -17,6 +17,8 @@ jobs:
         run: php scripts/test-github-updates.php
       - name: Vérifier la conservation des dossiers Vigie
         run: php scripts/test-vigie-record.php
+      - name: Vérifier le référencement personnel
+        run: php scripts/test-seo.php
       - name: Construire le thème installable
         run: python3 scripts/package-theme.py
   release:
