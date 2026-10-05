@@ -1,6 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
-define('MARANDA_THEME_VERSION', '0.1.1');
+define('MARANDA_THEME_VERSION', '0.1.2');
+require_once get_theme_file_path('inc/vigie-record.php');
 require_once get_theme_file_path('inc/github-updates.php');
 add_action('after_setup_theme', static function () {
     add_theme_support('wp-block-styles');
@@ -442,11 +443,6 @@ add_filter('render_block', static function (string $content, array $block): stri
   $html=preg_replace_callback('~(<div class="listing__grid"[^>]*>).*?(</div></section>)~s', static fn($m) => $m[1].maranda_original_vigie_cards().$m[2], $html, 1);
   $html=str_replace('Parlons d’une possibilité','Me contacter',$html);
   return '<main class="rr-vigie mm-main">'.$html.'</main>';
- }
- if (is_singular('mm_vigie')) {
-  $id=get_queried_object_id(); $data=maranda_original_vigie_card_data($id);
-  $facts='<p>'.esc_html($data['infrastructure'].' · '.$data['period']).'</p><p>Statut : '.esc_html($data['status']).' · Vérification : '.esc_html($data['verification']).'</p>';
-  return '<main class="rr-vigie mm-main"><header class="page-head"><div class="container"><p class="eyebrow">Dossier Vigie Réseau</p><h1 class="display">'.esc_html(get_the_title($id)).'</h1>'.$facts.'</div></header><article class="container mm-vigie-detail">'.apply_filters('the_content',get_post_field('post_content',$id)).'<p><a class="button" href="'.esc_url(home_url('/vigie-reseau/')).'">Toutes les vigies</a></p></article></main>';
  }
  return $content;
 }, 20, 2);

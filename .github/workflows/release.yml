@@ -15,6 +15,8 @@ jobs:
         run: find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n 1 php -l
       - name: Vérifier les mises à jour GitHub
         run: php scripts/test-github-updates.php
+      - name: Vérifier la conservation des dossiers Vigie
+        run: php scripts/test-vigie-record.php
       - name: Construire le thème installable
         run: python3 scripts/package-theme.py
   release:
