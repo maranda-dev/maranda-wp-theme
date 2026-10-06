@@ -26,10 +26,9 @@ function maranda_blog_article(): string {
 ?>
 <article <?php post_class('rr-blog__article'); ?>>
     <header class="rr-blog__masthead">
-        <div class="rr-blog__eyebrow"><span>Le carnet de <?php the_author(); ?></span><span>Idées · terrain · opinions</span></div>
+        <div class="rr-blog__eyebrow"><span>Le carnet de <?php the_author(); ?></span></div>
         <div class="rr-blog__heading">
             <div>
-                <div class="rr-blog__categories"><?php the_category(' / '); ?></div>
                 <h1><?php the_title(); ?></h1>
                 <?php if (!$locked && has_excerpt()) : ?><p class="rr-blog__intro"><?php echo esc_html(get_the_excerpt()); ?></p><?php endif; ?>
             </div>

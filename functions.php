@@ -1,6 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
-define('MARANDA_THEME_VERSION', '0.1.12');
+define('MARANDA_THEME_VERSION', '0.1.13');
 require_once get_theme_file_path('inc/vigie-record.php');
 require_once get_theme_file_path('inc/personal-note.php');
 require_once get_theme_file_path('inc/github-updates.php');
@@ -81,9 +81,9 @@ add_filter('post_link', static function ($url, $post, $leavename) {
 require_once get_theme_file_path('inc/maranda-contact.php');
 add_shortcode('maranda_map', static function () {
     wp_enqueue_style('maranda-leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', [], '1.9.4');
-    wp_enqueue_style('maranda-map', get_theme_file_uri('assets/maranda-map.css'), ['maranda-leaflet'], '0.1.12');
+    wp_enqueue_style('maranda-map', get_theme_file_uri('assets/maranda-map.css'), ['maranda-leaflet'], '0.1.13');
     wp_enqueue_script('maranda-leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', [], '1.9.4', true);
-    wp_enqueue_script('maranda-map', get_theme_file_uri('assets/carte-interactive.js'), ['maranda-leaflet'], '0.1.12', true);
+    wp_enqueue_script('maranda-map', get_theme_file_uri('assets/carte-interactive.js'), ['maranda-leaflet'], '0.1.13', true);
     $endpoint = rest_url('bsir/v1/public-map');
     if (isset($_GET['wpvibe_preview']) && is_string($_GET['wpvibe_preview'])) $endpoint = add_query_arg('wpvibe_preview', sanitize_text_field(wp_unslash($_GET['wpvibe_preview'])), $endpoint);
     ob_start(); ?>
@@ -146,7 +146,7 @@ add_action('rest_api_init', static function () {
 add_action('wp_enqueue_scripts', static function () {
     if (!is_page('carte-des-releves')) return;
     wp_enqueue_style('maranda-leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', [], '1.9.4');
-    wp_enqueue_style('maranda-map', get_theme_file_uri('assets/maranda-map.css'), ['maranda-leaflet'], '0.1.12');
+    wp_enqueue_style('maranda-map', get_theme_file_uri('assets/maranda-map.css'), ['maranda-leaflet'], '0.1.13');
 });
 
 /* Preserve the original Vigie cards and their editable WordPress fields. */
