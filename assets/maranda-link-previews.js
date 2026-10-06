@@ -13,7 +13,7 @@
     '/a-propos': { key: 'moi', label: 'Moi, comme je suis' },
     '/inspekt': { key: 'inspekt', label: 'InspeKT · tableau de bord' },
     '/carte-des-releves': { key: 'carte', label: 'Carte · relevés terrain' },
-    '/vigie-reseau': { key: 'vigies', label: 'Vigies · dossiers et suivis' },
+    '/vigie-reseau': { key: 'vigies', label: 'Ma veille sur le réseau routier' },
   };
   const host = value => value.replace(/^www\./, '');
   const preview = document.createElement('figure');
@@ -28,7 +28,7 @@
   let active = null;
   function hide() { active = null; preview.hidden = true; }
   function destination(link) {
-    if (!link || !link.closest('main') || link.closest('nav, header, footer, [data-inspekt-map]')) return null;
+    if (!link || !link.closest('main') || link.closest('nav, footer, [data-inspekt-map]')) return null;
     const url = new URL(link.href, site);
     if (url.hash || link.getAttribute('href').startsWith('#')) return null;
     if (!['http:', 'https:'].includes(url.protocol) || host(url.hostname) !== host(site.hostname) || url.port !== site.port) return null;
