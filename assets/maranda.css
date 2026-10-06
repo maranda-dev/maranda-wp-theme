@@ -17,6 +17,7 @@
 .mm-contact-form input,.mm-contact-form textarea{display:block;width:100%;font:inherit;color:var(--mm-ink);border:1px solid #b6c0c8;border-radius:4px;background:#fff;padding:13px 14px;margin:0 0 24px}
 .mm-contact-form textarea{min-height:190px;resize:vertical}
 .mm-contact-form button{font:inherit;font-size:16px;font-weight:600;border:0;border-radius:4px;padding:15px 23px;color:#fff;background:var(--mm-ink);cursor:pointer}
+.mm-contact-form button:hover:not(:disabled){background:#175a82;color:#fff}
 .mm-contact-form button:disabled{opacity:.6;cursor:wait}
 .mm-contact-form .mm-contact-status{margin-top:20px;font-size:16px}
 .mm-contact-help{font-size:14px;color:var(--mm-muted)}
