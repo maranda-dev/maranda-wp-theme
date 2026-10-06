@@ -6,6 +6,7 @@
   const site = new URL(config.siteUrl, window.location.href);
   const basePath = site.pathname.replace(/\/$/, '');
   const destinations = {
+    '/confidentialite': { key: 'confidentialite', label: 'Confidentialité' },
     '/works': { key: 'works', label: 'Projets · Des idées qui prennent forme' },
     '/blog': { key: 'blog', label: 'Le blog · Ce qui me passe par la tête' },
     '/contact': { key: 'contact', label: 'Me contacter' },
