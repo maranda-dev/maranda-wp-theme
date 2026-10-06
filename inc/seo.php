@@ -10,7 +10,7 @@ function maranda_seo_defaults(): array {
         'front-page' => ['Mario Maranda | Parcours, projets et carnet personnel', 'Découvrez le carnet personnel de Mario Maranda : parcours professionnel, projets numériques, observations du réseau routier et réflexions.'],
         'a-propos' => ['À propos de Mario Maranda | Passion, parcours et projets', 'Qui est Mario Maranda ? Découvrez mon parcours, ma façon de fonctionner et ce qui m’anime : le terrain, les routes et les outils numériques.'],
         'profil-professionnel' => ['Parcours professionnel | Mario Maranda', 'Mon parcours en transport, suivi de chantiers, coordination et informatique : emplois antérieurs, responsabilités, réalisations et formations.'],
-        'works' => ['Projets et explorations numériques | Mario Maranda', 'Découvrez mes projets personnels, dont InspeKT et maranda.dev, ainsi que mes explorations en documentation terrain et en développement numérique.'],
+        'works' => ['Projets et explorations numériques | Mario Maranda', 'InspeKT, la carte des relevés et les vigies : mes projets de documentation terrain et les outils numériques qui les accompagnent.'],
         'inspekt' => ['InspeKT : relevés du réseau routier | Mario Maranda', 'InspeKT, mon outil pour réunir photos, positions GPS et observations du réseau routier. Découvrez son origine et ma démarche de documentation terrain.'],
         'blog' => ['Carnet personnel : routes, projets et idées | Mario Maranda', 'Mes textes sur les routes, mes projets, la technologie et les questions qui m’occupent. Le carnet personnel de Mario Maranda, à ma façon.'],
         'carte-des-releves' => ['Carte de mes observations routières | Mario Maranda', 'Explorez mes observations du réseau routier sur une carte interactive : photographies, localisations et relevés publics documentés avec InspeKT.'],
@@ -144,14 +144,14 @@ add_action('wp_head', static function () {
     if (!maranda_seo_enabled()) return;
     $data = maranda_seo_data(); $url = maranda_seo_canonical(); $post = maranda_seo_context_post();
     $image = $post ? get_the_post_thumbnail_url($post, 'full') : false;
-    $fallback_image = !$image; $image = $image ?: get_theme_file_uri('screenshot.png');
+    $fallback_image = !$image; $image = $image ?: get_theme_file_uri('assets/social-card.png');
     $article = $post && $post->post_type === 'post';
     if ($url !== '') echo '<link rel="canonical" href="' . esc_url($url) . '">' . "\n";
     $tags = ['description' => $data['description'], 'og:title' => $data['title'], 'og:description' => $data['description'],
         'og:type' => $article ? 'article' : 'website', 'og:site_name' => 'Mario Maranda', 'og:locale' => 'fr_CA',
         'og:url' => $url, 'og:image' => $image, 'og:image:alt' => $fallback_image ? 'Le carnet personnel de Mario Maranda — maranda.dev' : get_the_title($post),
         'twitter:card' => 'summary_large_image', 'twitter:title' => $data['title'], 'twitter:description' => $data['description'], 'twitter:image' => $image];
-    if ($fallback_image) { $tags['og:image:width'] = '1200'; $tags['og:image:height'] = '900'; }
+    if ($fallback_image) { $tags['og:image:width'] = '1200'; $tags['og:image:height'] = '630'; }
     foreach ($tags as $name => $value) {
         if ($value === '') continue;
         $attribute = str_starts_with($name, 'og:') ? 'property' : 'name';

@@ -77,6 +77,7 @@ check(maranda_seo_text('<p>Une route</p><p>Une idée</p>') === 'Une route Une id
 $meta[40] = ['maranda_seo_title' => '</script><script>alert(1)</script>', 'maranda_seo_description' => 'Mon texte'];
 check(maranda_seo_data()['description'] === 'Mon texte', 'Editable metadata must win over defaults.');
 ob_start(); $hooks['wp_head'](); $html = ob_get_clean();
+check(str_contains($html, 'assets/social-card.png') && str_contains($html, 'content="630"'), 'Sharing fallback must use the brand image in 1200×630 format.');
 check(substr_count($html, 'rel="canonical"') === 1, 'Only one canonical may be emitted.');
 check(!str_contains($html, '<script>alert(1)</script>'), 'Metadata must not break out of JSON or attributes.');
 preg_match('~<script type="application/ld\+json">(.*?)</script>~s', $html, $matches);
