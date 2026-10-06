@@ -67,7 +67,10 @@
   document.addEventListener('focusout', hide);
   document.addEventListener('keydown', event => { if (event.key === 'Escape') hide(); });
   document.addEventListener('click', hide);
-  window.addEventListener('scroll', hide, true);
+  window.addEventListener('scroll', () => {
+    if (active === document.activeElement && active.matches(':focus-visible')) position();
+    else hide();
+  }, true);
   window.addEventListener('resize', hide);
   finePointer.addEventListener('change', hide);
 })();
