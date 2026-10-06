@@ -1,6 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
-define('MARANDA_THEME_VERSION', '0.1.16');
+define('MARANDA_THEME_VERSION', '0.1.17');
 require_once get_theme_file_path('inc/vigie-record.php');
 require_once get_theme_file_path('inc/personal-note.php');
 require_once get_theme_file_path('inc/github-updates.php');
@@ -31,6 +31,16 @@ add_action('wp_enqueue_scripts', static function () {
         wp_enqueue_style('maranda-home-road', get_theme_file_uri('assets/home-road.css'), ['maranda'], MARANDA_THEME_VERSION);
         wp_enqueue_script('maranda-home-vigies', get_theme_file_uri('assets/home-vigies.js'), [], MARANDA_THEME_VERSION, true);
     }
+    wp_enqueue_style('maranda-link-previews', get_theme_file_uri('assets/maranda-link-previews.css'), [], MARANDA_THEME_VERSION);
+    wp_enqueue_script('maranda-link-previews', get_theme_file_uri('assets/maranda-link-previews.js'), [], MARANDA_THEME_VERSION, true);
+    wp_add_inline_script('maranda-link-previews', 'window.marandaLinkPreviews = ' . wp_json_encode([
+        'siteUrl' => home_url('/'),
+        'images' => [
+            'inspekt' => get_theme_file_uri('assets/previews/inspekt.webp'),
+            'carte' => get_theme_file_uri('assets/previews/carte.webp'),
+            'vigies' => get_theme_file_uri('assets/previews/vigies.webp'),
+        ],
+    ]) . ';', 'before');
 });
 /* Keep existing content types available; do not write settings or rewrite rules in a preview. */
 add_action('init', static function () {
@@ -99,7 +109,6 @@ add_shortcode('maranda_map', static function () {
   <div class="rr-map-layout">
     <aside class="rr-map-sidebar" id="rr-map-sidebar" aria-label="Filtres des relevés">
       <div class="rr-map-sidebar__heading">
-        <p>Relevés terrain</p>
         <h2>Relevés terrain</h2>
         <p>Une carte de situations que j’ai documentées sur le réseau routier.</p>
       </div>

@@ -14,7 +14,6 @@ add_shortcode('maranda_map', static function () {
   <div class="rr-map-layout">
     <aside class="rr-map-sidebar" id="rr-map-sidebar" aria-label="Filtres des relevés">
       <div class="rr-map-sidebar__heading">
-        <p>Relevés terrain</p>
         <h2>Relevés terrain</h2>
         <p>Une carte de situations que j’ai documentées sur le réseau routier.</p>
       </div>

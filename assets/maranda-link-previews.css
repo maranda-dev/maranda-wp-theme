@@ -1,0 +1,4 @@
+.mm-link-preview{position:fixed;z-index:10000;width:min(380px,calc(100vw - 24px));margin:0;background:var(--mm-paper,#fff);color:var(--mm-ink,#172e3d);border:1px solid var(--mm-line,#d4cec2);border-radius:8px;box-shadow:0 12px 32px #0002;overflow:hidden;pointer-events:none;font-family:Arial,Helvetica,sans-serif}
+.mm-link-preview[hidden]{display:none!important}
+.mm-link-preview img{display:block;width:100%;height:auto;margin:0}
+.mm-link-preview figcaption{padding:12px 16px;font-size:13px;line-height:1.4}
