@@ -1,6 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
-define('MARANDA_THEME_VERSION', '0.1.19');
+define('MARANDA_THEME_VERSION', '0.1.20');
 require_once get_theme_file_path('inc/vigie-record.php');
 require_once get_theme_file_path('inc/personal-note.php');
 require_once get_theme_file_path('inc/github-updates.php');
@@ -37,6 +37,7 @@ add_action('wp_enqueue_scripts', static function () {
         'siteUrl' => home_url('/'),
         'pages' => maranda_link_preview_pages(),
         'images' => [
+            'moi' => get_theme_file_uri('assets/previews/moi.webp'),
             'inspekt' => get_theme_file_uri('assets/previews/inspekt.webp'),
             'carte' => get_theme_file_uri('assets/previews/carte.webp'),
             'vigies' => get_theme_file_uri('assets/previews/vigies.webp'),

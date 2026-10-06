@@ -6,6 +6,7 @@
   const site = new URL(config.siteUrl, window.location.href);
   const basePath = site.pathname.replace(/\/$/, '');
   const destinations = {
+    '/a-propos': { key: 'moi', label: 'Moi, comme je suis' },
     '/inspekt': { key: 'inspekt', label: 'InspeKT · tableau de bord' },
     '/carte-des-releves': { key: 'carte', label: 'Carte · relevés terrain' },
     '/vigie-reseau': { key: 'vigies', label: 'Vigies · dossiers et suivis' },
