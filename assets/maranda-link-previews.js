@@ -25,8 +25,12 @@
   function destination(link) {
     if (!link || !link.closest('main') || link.closest('nav, header, footer, [data-inspekt-map]')) return null;
     const url = new URL(link.href, site);
+    if (url.hash || link.getAttribute('href').startsWith('#')) return null;
     if (!['http:', 'https:'].includes(url.protocol) || host(url.hostname) !== host(site.hostname) || url.port !== site.port) return null;
-    return destinations[url.pathname.replace(/\/$/, '').slice(basePath.length)] || null;
+    const path = url.pathname.replace(/\/$/, '');
+    const fixed = destinations[path.slice(basePath.length)];
+    if (fixed) return { src: config.images[fixed.key], label: fixed.label };
+    return (config.pages || {})[path] || null;
   }
   function position() {
     if (!active || preview.hidden) return;
@@ -44,7 +48,7 @@
     const item = destination(link);
     if (!item) return;
     active = link;
-    image.src = config.images[item.key];
+    image.src = item.src;
     caption.textContent = item.label;
     preview.hidden = false;
     position();

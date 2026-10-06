@@ -1,6 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
-define('MARANDA_THEME_VERSION', '0.1.18');
+define('MARANDA_THEME_VERSION', '0.1.19');
 require_once get_theme_file_path('inc/vigie-record.php');
 require_once get_theme_file_path('inc/personal-note.php');
 require_once get_theme_file_path('inc/github-updates.php');
@@ -35,6 +35,7 @@ add_action('wp_enqueue_scripts', static function () {
     wp_enqueue_script('maranda-link-previews', get_theme_file_uri('assets/maranda-link-previews.js'), [], MARANDA_THEME_VERSION, true);
     wp_add_inline_script('maranda-link-previews', 'window.marandaLinkPreviews = ' . wp_json_encode([
         'siteUrl' => home_url('/'),
+        'pages' => maranda_link_preview_pages(),
         'images' => [
             'inspekt' => get_theme_file_uri('assets/previews/inspekt.webp'),
             'carte' => get_theme_file_uri('assets/previews/carte.webp'),
@@ -42,6 +43,26 @@ add_action('wp_enqueue_scripts', static function () {
         ],
     ]) . ';', 'before');
 });
+/** Only published, publicly viewable destinations contribute preview images. */
+function maranda_link_preview_pages(): array {
+    $pages = [];
+    $posts = get_posts([
+        'post_type' => array_values(get_post_types(['public' => true])),
+        'post_status' => 'publish', 'posts_per_page' => -1,
+        'has_password' => false, 'exclude' => [],
+    ]);
+    foreach ($posts as $post) {
+        if ($post->post_type === 'attachment' || !is_post_publicly_viewable($post)) continue;
+        $image = $post->post_type === 'mm_vigie'
+            ? maranda_original_vigie_image($post->ID)['url']
+            : get_the_post_thumbnail_url($post->ID, 'large');
+        if (!$image) continue;
+        $path = untrailingslashit((string) wp_parse_url(get_permalink($post), PHP_URL_PATH));
+        $pages[$path] = ['src' => esc_url_raw($image), 'label' => wp_strip_all_tags(get_the_title($post))];
+    }
+    return $pages;
+}
+
 /* Keep existing content types available; do not write settings or rewrite rules in a preview. */
 add_action('init', static function () {
     // Preserve the existing site content types when switching from Mario Maranda's theme.
