@@ -7,15 +7,15 @@ function maranda_seo_enabled(): bool {
 }
 function maranda_seo_defaults(): array {
     return [
-        'front-page' => ['Mario Maranda | Parcours, projets et carnet personnel', 'Découvrez le carnet personnel de Mario Maranda : parcours professionnel, projets numériques, observations du réseau routier et réflexions.'],
-        'a-propos' => ['À propos de Mario Maranda | Passion, parcours et projets', 'Qui est Mario Maranda ? Découvrez mon parcours, ma façon de fonctionner et ce qui m’anime : le terrain, les routes et les outils numériques.'],
+        'front-page' => ['Mario Maranda | Parcours, projets et carnet personnel', 'Je partage mon parcours professionnel, mes projets numériques, mes observations du réseau routier et mes réflexions dans mon carnet personnel.'],
+        'a-propos' => ['À propos de Mario Maranda | Passion, parcours et projets', 'Je me présente comme je suis : ma façon de fonctionner, mes difficultés, mes envies et ce qui me fait du bien.'],
         'profil-professionnel' => ['Parcours professionnel | Mario Maranda', 'Mon parcours en transport, suivi de chantiers, coordination et informatique : emplois antérieurs, responsabilités, réalisations et formations.'],
         'works' => ['Projets et explorations numériques | Mario Maranda', 'InspeKT, la carte des relevés et les vigies : mes projets de documentation terrain et les outils numériques qui les accompagnent.'],
         'inspekt' => ['InspeKT : relevés du réseau routier | Mario Maranda', 'InspeKT, mon outil pour réunir photos, positions GPS et observations du réseau routier. Découvrez son origine et ma démarche de documentation terrain.'],
-        'blog' => ['Carnet personnel : routes, projets et idées | Mario Maranda', 'Mes textes sur les routes, mes projets, la technologie et les questions qui m’occupent. Le carnet personnel de Mario Maranda, à ma façon.'],
+        'blog' => ['Carnet personnel : routes, projets et idées | Mario Maranda', 'Mes textes sur les routes, mes projets, la technologie et les questions qui m’occupent. Mon carnet personnel, à ma façon.'],
         'carte-des-releves' => ['Carte de mes observations routières | Mario Maranda', 'Explorez mes observations du réseau routier sur une carte interactive : photographies, localisations et relevés publics documentés avec InspeKT.'],
         'vigie-reseau' => ['Vigie Réseau : suivis et dossiers routiers | Mario Maranda', 'Ma veille personnelle sur le réseau routier : dossiers, chronologies, observations et sources publiques pour suivre les situations dans le temps.'],
-        'contact' => ['Me contacter | Mario Maranda', 'Une question, une idée ou l’envie de discuter de mon parcours et de mes projets ? Contactez Mario Maranda avec le formulaire de ce site personnel.'],
+        'contact' => ['Me contacter | Mario Maranda', 'Une question, une idée ou l’envie de discuter de mon parcours et de mes projets ? Tu peux m’écrire avec le formulaire de mon site personnel.'],
         'confidentialite' => ['Confidentialité et protection des données | Mario Maranda', 'Comment mon site personnel traite les données du formulaire de contact et limite les messages indésirables. Consultez les informations de confidentialité.'],
     ];
 }
@@ -149,7 +149,7 @@ add_action('wp_head', static function () {
     if ($url !== '') echo '<link rel="canonical" href="' . esc_url($url) . '">' . "\n";
     $tags = ['description' => $data['description'], 'og:title' => $data['title'], 'og:description' => $data['description'],
         'og:type' => $article ? 'article' : 'website', 'og:site_name' => 'Mario Maranda', 'og:locale' => 'fr_CA',
-        'og:url' => $url, 'og:image' => $image, 'og:image:alt' => $fallback_image ? 'Le carnet personnel de Mario Maranda — maranda.dev' : get_the_title($post),
+        'og:url' => $url, 'og:image' => $image, 'og:image:alt' => $fallback_image ? 'Mon carnet personnel — maranda.dev' : get_the_title($post),
         'twitter:card' => 'summary_large_image', 'twitter:title' => $data['title'], 'twitter:description' => $data['description'], 'twitter:image' => $image];
     if ($fallback_image) { $tags['og:image:width'] = '1200'; $tags['og:image:height'] = '630'; }
     foreach ($tags as $name => $value) {
@@ -212,7 +212,7 @@ add_action('admin_menu', static function () {
 });
 function maranda_seo_dashboard(): void {
     if (!current_user_can('manage_options')) wp_die('Accès refusé.');
-    echo '<div class="wrap"><h1>Référencement du carnet personnel</h1><p>Positionnement : Mario Maranda, son parcours, ses projets et sa passion pour le réseau routier. L’identité structurée est une personne, sans offre de services commerciaux.</p>';
+    echo '<div class="wrap"><h1>Référencement du carnet personnel</h1><p>Positionnement : mon parcours, mes projets et ma passion pour le réseau routier. L’identité structurée est une personne, sans offre de services commerciaux.</p>';
     if (!maranda_seo_enabled()) { echo '<p>Une extension SEO active gère les titres et les aperçus. Le thème lui laisse la priorité.</p></div>'; return; }
     echo '<p>Pour modifier une valeur, ouvrez la page et utilisez le panneau <strong>Référencement et partage</strong>. Les valeurs automatiques sont présentées ci-dessous.</p><table class="widefat striped"><thead><tr><th>Page</th><th>Titre</th><th>Description</th></tr></thead><tbody>';
     foreach (maranda_seo_defaults() as $slug => $defaults) {

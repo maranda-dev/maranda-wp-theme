@@ -26,7 +26,7 @@ function maranda_blog_article(): string {
 ?>
 <article <?php post_class('rr-blog__article'); ?>>
     <header class="rr-blog__masthead">
-        <div class="rr-blog__eyebrow"><span>Le carnet de <?php the_author(); ?></span></div>
+        <div class="rr-blog__eyebrow"><span>Mon carnet</span></div>
         <div class="rr-blog__heading">
             <div>
                 <h1><?php the_title(); ?></h1>
