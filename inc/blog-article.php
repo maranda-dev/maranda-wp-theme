@@ -6,8 +6,12 @@ function maranda_blog_author_bio_html(int $user_id): string {
     $tags = ['p' => [], 'br' => [], 'strong' => [], 'b' => [], 'em' => [], 'i' => [], 'ul' => [], 'ol' => [], 'li' => [], 'blockquote' => [], 'a' => ['href' => true, 'title' => true]];
     return $bio === '' ? '' : wpautop(wp_kses($bio, $tags));
 }
-add_shortcode('maranda_blog_article', static function (): string {
+function maranda_blog_article(): string {
     if (!is_singular('post')) return '';
+    global $post;
+    $post = get_queried_object();
+    if (!$post instanceof WP_Post) return '';
+    setup_postdata($post);
     ob_start();
 ?>
 <div class="rr-blog">
@@ -74,4 +78,8 @@ add_shortcode('maranda_blog_article', static function (): string {
 </article>
 </div>
 <?php return (string) ob_get_clean();
+}
+add_shortcode('maranda_blog_article', 'maranda_blog_article');
+add_action('init', static function (): void {
+    register_block_type('maranda/blog-article', ['render_callback' => 'maranda_blog_article']);
 });
