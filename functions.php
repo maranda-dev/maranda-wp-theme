@@ -1,11 +1,12 @@
 <?php
 defined('ABSPATH') || exit;
-define('MARANDA_THEME_VERSION', '0.1.10');
+define('MARANDA_THEME_VERSION', '0.1.11');
 require_once get_theme_file_path('inc/vigie-record.php');
 require_once get_theme_file_path('inc/personal-note.php');
 require_once get_theme_file_path('inc/github-updates.php');
 require_once get_theme_file_path('inc/seo.php');
 require_once get_theme_file_path('inc/home-vigies.php');
+require_once get_theme_file_path('inc/blog-article.php');
 /* Render the Posts page introduction without borrowing the current article context. */
 add_shortcode('maranda_blog_introduction', static function (): string {
     $page = get_post((int) get_option('page_for_posts'));
@@ -19,6 +20,7 @@ add_action('after_setup_theme', static function () {
 });
 add_action('wp_enqueue_scripts', static function () {
     wp_enqueue_style('maranda', get_theme_file_uri('assets/maranda.css'), [], MARANDA_THEME_VERSION);
+    if (is_singular('post')) wp_enqueue_style('maranda-blog-article', get_theme_file_uri('assets/blog.css'), ['maranda'], MARANDA_THEME_VERSION);
     if (is_front_page()) {
         wp_enqueue_style('maranda-home-road', get_theme_file_uri('assets/home-road.css'), ['maranda'], MARANDA_THEME_VERSION);
         wp_enqueue_script('maranda-home-vigies', get_theme_file_uri('assets/home-vigies.js'), [], MARANDA_THEME_VERSION, true);
@@ -79,9 +81,9 @@ add_filter('post_link', static function ($url, $post, $leavename) {
 require_once get_theme_file_path('inc/maranda-contact.php');
 add_shortcode('maranda_map', static function () {
     wp_enqueue_style('maranda-leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', [], '1.9.4');
-    wp_enqueue_style('maranda-map', get_theme_file_uri('assets/maranda-map.css'), ['maranda-leaflet'], '0.1.10');
+    wp_enqueue_style('maranda-map', get_theme_file_uri('assets/maranda-map.css'), ['maranda-leaflet'], '0.1.11');
     wp_enqueue_script('maranda-leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', [], '1.9.4', true);
-    wp_enqueue_script('maranda-map', get_theme_file_uri('assets/carte-interactive.js'), ['maranda-leaflet'], '0.1.10', true);
+    wp_enqueue_script('maranda-map', get_theme_file_uri('assets/carte-interactive.js'), ['maranda-leaflet'], '0.1.11', true);
     $endpoint = rest_url('bsir/v1/public-map');
     if (isset($_GET['wpvibe_preview']) && is_string($_GET['wpvibe_preview'])) $endpoint = add_query_arg('wpvibe_preview', sanitize_text_field(wp_unslash($_GET['wpvibe_preview'])), $endpoint);
     ob_start(); ?>
@@ -144,7 +146,7 @@ add_action('rest_api_init', static function () {
 add_action('wp_enqueue_scripts', static function () {
     if (!is_page('carte-des-releves')) return;
     wp_enqueue_style('maranda-leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', [], '1.9.4');
-    wp_enqueue_style('maranda-map', get_theme_file_uri('assets/maranda-map.css'), ['maranda-leaflet'], '0.1.10');
+    wp_enqueue_style('maranda-map', get_theme_file_uri('assets/maranda-map.css'), ['maranda-leaflet'], '0.1.11');
 });
 
 /* Preserve the original Vigie cards and their editable WordPress fields. */

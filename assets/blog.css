@@ -1,0 +1,78 @@
+/* Carnet personnel : styles volontairement limités aux articles. */
+@media(min-width:1181px) and (max-width:1400px){body.single-post .rr-header .nav-links{gap:16px}body.single-post .rr-header .header__inner{gap:24px}}
+.rr-blog{--ink:#202729;--blue:#095797;--paper:#fff;--acid:#dfff57;background:var(--paper);color:var(--ink);padding:64px max(24px,calc((100vw - 1280px)/2)) 72px;font-family:Arial,Helvetica,sans-serif}
+.rr-blog *{box-sizing:border-box}
+.rr-blog a{color:inherit;text-underline-offset:5px;text-decoration-thickness:1px}
+.rr-blog a:hover{color:var(--blue)}
+.rr-blog a:focus-visible{outline:3px solid var(--blue);outline-offset:5px}
+.rr-blog__eyebrow{display:flex;justify-content:space-between;gap:20px;border-top:3px solid var(--ink);padding-top:18px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.16em}
+.rr-blog__eyebrow>span:first-child:before{content:"";display:inline-block;width:28px;height:7px;background:var(--blue);transform:skew(-25deg);margin-right:12px}
+.rr-blog__heading{display:grid;grid-template-columns:minmax(0,1fr) 205px;gap:70px;align-items:center;padding:58px 0 38px}
+.rr-blog__categories{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin-bottom:20px}
+.rr-blog__categories a{text-decoration:none}
+.rr-blog h1{font-size:clamp(42px,5.8vw,82px);line-height:1.02;letter-spacing:-.055em;font-weight:800;margin:0;max-width:1000px;text-transform:none;overflow-wrap:anywhere}
+.rr-blog__intro{max-width:760px;font-size:clamp(19px,2vw,24px);line-height:1.5;margin:26px 0 0;color:#4c5354}
+.rr-blog__stamp{background:var(--acid);border:2px solid var(--ink);padding:22px 19px;transform:rotate(6deg);box-shadow:7px 7px 0 var(--ink)}
+.rr-blog__stamp span{display:block;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.09em}
+.rr-blog__stamp strong{display:block;font-size:32px;line-height:1.02;letter-spacing:-.05em;margin:18px 0 24px}
+.rr-blog__meta{display:flex;gap:12px 26px;flex-wrap:wrap;border-top:1px solid #c9cdca;border-bottom:1px solid #c9cdca;padding:19px 0;font-size:12px}
+.rr-blog__cover{margin:36px 0 0}
+.rr-blog__cover img{display:block;width:100%;max-height:660px;object-fit:cover}
+.rr-blog__cover figcaption{font-size:12px;color:#596061;margin-top:10px}
+.rr-blog__reading{display:grid;grid-template-columns:210px minmax(0,780px);gap:72px;margin:64px 0 0;justify-content:center}
+.rr-blog__rail{position:sticky;top:110px;align-self:start;font-size:13px;line-height:1.65}
+.rr-blog__rail-mark{font-size:46px;color:var(--blue);line-height:1}
+.rr-blog__rail p{font-weight:700;margin:18px 0 28px}
+.rr-blog__rail a{display:block;border-top:1px solid #c9cdca;padding:14px 0;text-decoration:none;font-size:12px}
+.rr-blog__rail a span{float:right}
+.rr-blog__column{min-width:0}
+.rr-blog__body{font-family:Arial,Helvetica,sans-serif;font-size:20px;line-height:1.8;overflow-wrap:anywhere}
+.rr-blog__body>:first-child{margin-top:0}
+.rr-blog__body p{margin:0 0 1.4em}
+.rr-blog__body h2,.rr-blog__body h3,.rr-blog__body h4{font-family:Arial,Helvetica,sans-serif;font-weight:800;line-height:1.15;letter-spacing:-.035em;text-transform:none}
+.rr-blog__body h2{font-size:clamp(28px,3vw,40px);margin:1.8em 0 .65em}
+.rr-blog__body h3{font-size:26px;margin:1.6em 0 .6em}
+.rr-blog__body a{color:var(--blue);text-decoration:underline}
+.rr-blog__body li{margin-bottom:.5em}
+.rr-blog__body img,.rr-blog__body video{max-width:100%;height:auto}
+.rr-blog__body iframe{max-width:100%}
+.rr-blog__body figure{max-width:100%;margin:2em 0}
+.rr-blog__body figcaption{font:12px/1.6 Arial,Helvetica,sans-serif;color:#596061;margin-top:10px}
+.rr-blog__body blockquote,.rr-blog__body .wp-block-pullquote{border:0;border-left:6px solid var(--blue);margin:44px 0;padding:18px 0 18px 30px;text-align:left}
+.rr-blog__body blockquote p,.rr-blog__body .wp-block-pullquote p{font:800 clamp(26px,3vw,37px)/1.25 Arial,Helvetica,sans-serif;letter-spacing:-.035em;margin:0 0 18px}
+.rr-blog__body blockquote cite{font:12px/1.5 Arial,Helvetica,sans-serif;text-transform:none;letter-spacing:.04em}
+.rr-blog__body .wp-block-pullquote blockquote{margin:0;padding:0;border:0}
+.rr-blog__body .rr-blog-note{background:var(--acid);color:var(--ink);border:1px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:28px 32px;margin:40px 6px 40px 0;font:17px/1.7 Arial,Helvetica,sans-serif;transform:rotate(-.6deg)}
+.rr-blog__body .rr-blog-note h2,.rr-blog__body .rr-blog-note h3{margin-top:0;font-size:24px}
+.rr-blog__body .rr-blog-note>:last-child{margin-bottom:0}
+.rr-blog__body .rr-blog-lead{font-size:24px;line-height:1.6}
+.rr-blog__body hr{border:0;background:var(--blue);width:64px;height:6px;margin:44px 0;transform:skew(-25deg)}
+.rr-blog__body pre{overflow:auto;background:#e9eae5;padding:20px;font-size:14px;white-space:pre}
+.rr-blog__body .wp-block-table{overflow-x:auto}
+.rr-blog__body table{border-collapse:collapse;width:100%;font:16px/1.5 Arial,Helvetica,sans-serif}
+.rr-blog__body td,.rr-blog__body th{border:1px solid #b7bcb7;padding:12px;text-align:left}
+.rr-blog__body .alignwide,.rr-blog__body .alignfull{width:100%;margin-left:0;margin-right:0}
+.rr-blog__pages{display:flex;gap:14px;font:14px Arial,Helvetica,sans-serif}
+.rr-blog__tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:42px}
+.rr-blog__tags a{font-size:11px;text-decoration:none;border:1px solid #aeb6b2;padding:6px 12px;border-radius:30px}
+.rr-blog__signature{display:flex;gap:20px;align-items:center;border-top:2px solid var(--ink);padding-top:28px;margin-top:42px}
+.rr-blog__avatar{width:64px;height:64px;border-radius:50%}
+.rr-blog__signature span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.14em;margin-bottom:8px}
+.rr-blog__signature strong{font-size:20px}
+.rr-blog__signature p{font-size:13px;line-height:1.6;margin:8px 0 0;max-width:540px}
+.rr-blog__next{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:76px;border-top:1px solid #c9cdca;padding-top:28px}
+.rr-blog__next>div:last-child{text-align:right}
+.rr-blog__next span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.14em;margin-bottom:12px}
+.rr-blog__next a{font-size:clamp(18px,2vw,26px);font-weight:800;line-height:1.25;text-decoration:none}
+.rr-blog__next>div:not(:has(a)){display:none}
+.rr-blog__return{margin:40px 0 0;font-size:13px}
+@media(max-width:900px){.rr-blog__heading{grid-template-columns:minmax(0,1fr) 160px;gap:34px}.rr-blog__stamp strong{font-size:27px}.rr-blog__reading{grid-template-columns:140px minmax(0,1fr);gap:35px}.rr-blog__eyebrow{letter-spacing:.08em}}
+@media(max-width:640px){.rr-blog{padding:32px 22px 48px}.rr-blog__eyebrow{display:block;font-size:9px}.rr-blog__eyebrow>span{display:block;margin-bottom:12px}.rr-blog__heading{display:block;padding:30px 0}.rr-blog h1{font-size:43px}.rr-blog__stamp{display:none}.rr-blog__meta{font-size:11px;gap:10px 18px}.rr-blog__reading{display:flex;flex-direction:column;gap:28px;margin-top:36px}.rr-blog__rail{position:static;order:2;width:100%;display:flex;flex-wrap:wrap;gap:0 22px}.rr-blog__rail-mark,.rr-blog__rail p{display:none}.rr-blog__rail a{flex:1 1 140px}.rr-blog__body{font-size:18px;line-height:1.8}.rr-blog__body .rr-blog-lead{font-size:21px}.rr-blog__body .rr-blog-note{padding:22px}.rr-blog__body blockquote{padding-left:20px}.rr-blog__next{margin-top:34px;gap:20px}.rr-blog__signature{align-items:flex-start}}
+
+.rr-blog__bio{font-size:14px;line-height:1.65;max-width:540px}
+.rr-blog__bio p{font-size:inherit;margin:10px 0 0}
+.rr-blog__bio strong{font-size:inherit}
+.rr-blog__bio ul,.rr-blog__bio ol{padding-left:1.4em;margin:10px 0}
+.rr-blog__bio blockquote{margin:10px 0;padding-left:14px;border-left:3px solid var(--blue)}
+
+.rr-blog__comments{max-width:780px;margin:60px auto 0}.rr-blog__comments .wp-block-comments-title{font-size:32px}.rr-blog__comments input,.rr-blog__comments textarea{max-width:100%}
