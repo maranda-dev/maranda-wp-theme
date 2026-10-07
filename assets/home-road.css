@@ -10,3 +10,25 @@
 .mm-home-map__credit{display:block;margin-top:24px;font-size:11px;color:#5f6c73}
 
 .mm-road-passion{overflow:clip}
+
+/* A fuller editorial composition for the wide home page. */
+body.home .mm-hero{grid-template-columns:minmax(0,1.05fr) minmax(0,.85fr) minmax(0,1fr);align-items:center;gap:clamp(24px,3vw,56px);padding:40px 0;min-height:480px}
+body.home .mm-hero-title{font-size:clamp(4rem,7.4vw,9rem);align-self:center}
+body.home .mm-hero-note{align-self:center;padding:28px;background:#edf4f7;border-top:5px solid #175a82}
+body.home .mm-hero-note p{font-size:16px;line-height:1.65}
+body.home .mm-hero-note .mm-intro{font-size:clamp(22px,1.7vw,30px);line-height:1.25}
+body.home .mm-hero::after{content:"";display:block;align-self:stretch;min-height:380px;background:url('astro/route-quebec-hero.CETkoF_9_Z15aTvx.webp') 65% center/cover;border-bottom:8px solid #175a82}
+body.home #aujourdhui{background:#f2f6f7;color:var(--mm-ink)}
+body.home #aujourdhui>.mm-wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr);gap:32px;align-items:center;padding-right:32px}
+body.home #aujourdhui h2{font-size:clamp(30px,3.2vw,54px);margin:0;line-height:1.08}
+body.home #aujourdhui .wp-block-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:current}
+body.home #aujourdhui .wp-block-list>li{position:relative;counter-increment:current;background:white;border:1px solid #d7e2e7;padding:20px 22px 20px 64px;font-size:17px;line-height:1.55}
+body.home #aujourdhui .wp-block-list>li::before{content:counter(current,decimal-leading-zero);position:absolute;left:20px;top:20px;color:#175a82;font:700 14px/1.8 monospace}
+body.home .mm-main .mm-wrap.mm-section:has(> .mm-eyebrow):has(> .mm-lead):not(:has(.mm-paths,.mm-projects)){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);column-gap:40px;padding-right:32px;background:#f6f8f9}
+body.home .mm-main .mm-wrap.mm-section:has(> .mm-eyebrow):has(> .mm-lead):not(:has(.mm-paths,.mm-projects))>h2,body.home .mm-main .mm-wrap.mm-section:has(> .mm-eyebrow):has(> .mm-lead):not(:has(.mm-paths,.mm-projects))>.mm-lead,body.home .mm-main .mm-wrap.mm-section:has(> .mm-eyebrow):has(> .mm-lead):not(:has(.mm-paths,.mm-projects))>.mm-text-link{grid-column:1}
+body.home .mm-main .mm-wrap.mm-section:has(> .mm-eyebrow):has(> .mm-lead):not(:has(.mm-paths,.mm-projects))::after{content:"";grid-column:2;grid-row:1/span 3;min-height:260px;background:url('previews/inspekt.webp') center/cover;border:1px solid #d7e2e7;box-shadow:12px 12px 0 #e2ebef}
+body.home .mm-journal{background:#edf4f7;padding-right:32px}
+body.home .mm-post-row{background:#fff;padding:28px;border:1px solid #d7e2e7;border-left:5px solid #175a82}
+body.home .mm-home-map__text{background:#edf4f7}
+@media(max-width:1050px){body.home .mm-hero{grid-template-columns:1fr 1fr}body.home .mm-hero::after{grid-column:1/-1;min-height:260px}body.home #aujourdhui>.mm-wrap{grid-template-columns:1fr}body.home .mm-main .mm-wrap.mm-section:has(> .mm-eyebrow):has(> .mm-lead):not(:has(.mm-paths,.mm-projects)){grid-template-columns:1fr}body.home .mm-main .mm-wrap.mm-section:has(> .mm-eyebrow):has(> .mm-lead):not(:has(.mm-paths,.mm-projects))::after{grid-column:1;grid-row:auto;min-height:280px}}
+@media(max-width:650px){body.home .mm-hero{grid-template-columns:1fr;gap:24px;padding-block:28px}body.home .mm-hero-title{font-size:clamp(4rem,19vw,6rem)}body.home .mm-hero-note{margin:0;padding:24px}body.home .mm-hero::after{min-height:220px}body.home #aujourdhui>.mm-wrap{display:block;padding-right:0}body.home #aujourdhui h2{margin-bottom:24px}body.home #aujourdhui .wp-block-list>li{font-size:16px;padding:18px 18px 18px 54px}body.home .mm-main .mm-wrap.mm-section:has(> .mm-eyebrow):has(> .mm-lead):not(:has(.mm-paths,.mm-projects)){display:block;padding-right:0}body.home .mm-main .mm-wrap.mm-section:has(> .mm-eyebrow):has(> .mm-lead):not(:has(.mm-paths,.mm-projects))::after{display:block;min-height:230px;margin:24px 12px 12px 0}body.home .mm-journal{padding-right:0}body.home .mm-post-row{padding:22px}}
