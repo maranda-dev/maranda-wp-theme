@@ -1,6 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
-define('MARANDA_THEME_VERSION', '0.1.31');
+define('MARANDA_THEME_VERSION', '0.1.32');
 require_once get_theme_file_path('inc/vigie-record.php');
 require_once get_theme_file_path('inc/personal-note.php');
 require_once get_theme_file_path('inc/github-updates.php');
@@ -403,7 +403,7 @@ a[data-astro-cid-oqe7gpm4] span[data-astro-cid-oqe7gpm4] { font-size: 1rem; }
   .vigie-editorial { margin-block: 3rem; padding: 1.25rem; }
 }:root { --rr-blue: #095797; --rr-sky: #8dc6e8; --rr-navy: #17375e; --rr-charcoal: #3f403f; --rr-paper: #f4f5f4; --rr-line: #d9ddda; }
 .rr-method, .rr-services, .rr-about, .rr-contact, .rr-vigie, .rr-profile { overflow: hidden; color: rgb(37, 42, 46); }
-.rr-method .container, .rr-services .container, .rr-about .container, .rr-contact .container, .rr-vigie .container, .rr-profile .container { width: min(100% - 3rem, 90rem); }
+.rr-method .container, .rr-services .container, .rr-about .container, .rr-contact .container, .rr-vigie .container, .rr-profile .container { width: calc(100% - 3rem); }
 .rr-method .eyebrow, .rr-services .eyebrow, .rr-about .eyebrow, .rr-contact .eyebrow, .rr-vigie .eyebrow, .rr-profile .eyebrow { color: var(--rr-blue); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
 .rr-method .inner-head, .rr-services .inner-head, .rr-about .inner-head, .rr-contact .inner-head, .rr-vigie .page-head { position: relative; isolation: isolate; min-height: 31rem; padding: clamp(5rem, 8vw, 8rem) 0px; background: var(--rr-charcoal); color: rgb(255, 255, 255); }
 .rr-method .inner-head::before, .rr-services .inner-head::before, .rr-about .inner-head::before, .rr-contact .inner-head::before, .rr-vigie .page-head::before { position: absolute; z-index: -2; inset: 0px; background: linear-gradient(90deg, rgba(27, 35, 41, 0.95) 0%, rgba(27, 35, 41, 0.85) 45%, rgba(27, 35, 41, 0.4) 75%), url("./assets/astro/route-quebec-hero.CETkoF_9_Z15aTvx.webp") center 58% / cover no-repeat; content: ""; }
@@ -469,7 +469,7 @@ a[data-astro-cid-oqe7gpm4] span[data-astro-cid-oqe7gpm4] { font-size: 1rem; }
   .rr-vigie .card { grid-template-columns: 8rem 1fr; }
 }
 @media (max-width: 600px) {
-  .rr-method .container, .rr-services .container, .rr-about .container, .rr-contact .container, .rr-vigie .container, .rr-profile .container { width: min(100% - 2rem, 90rem); }
+  .rr-method .container, .rr-services .container, .rr-about .container, .rr-contact .container, .rr-vigie .container, .rr-profile .container { width: calc(100% - 2rem); }
   .rr-method .display, .rr-services .display, .rr-about .display, .rr-contact .display, .rr-vigie .display { font-size: clamp(2.8rem, 14vw, 4.2rem); }
   .rr-services .service-block ul { columns: 1; }
   .rr-services .services-tail .deliverables { columns: 1; }

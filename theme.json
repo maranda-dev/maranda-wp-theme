@@ -4,7 +4,7 @@
     "appearanceTools": true,
     "layout": {
       "contentSize": "720px",
-      "wideSize": "1180px"
+      "wideSize": "100%"
     },
     "color": {
       "palette": [

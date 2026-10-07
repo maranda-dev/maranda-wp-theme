@@ -1,6 +1,6 @@
 /* Carnet personnel : styles volontairement limités aux articles. */
 @media(min-width:1181px) and (max-width:1400px){body.single-post .rr-header .nav-links{gap:16px}body.single-post .rr-header .header__inner{gap:24px}}
-.rr-blog{--ink:#202729;--blue:#095797;--paper:#fff;--acid:#dfff57;background:var(--paper);color:var(--ink);padding:64px max(24px,calc((100vw - 1280px)/2)) 72px;font-family:Arial,Helvetica,sans-serif}
+.rr-blog{--ink:#202729;--blue:#095797;--paper:#fff;--acid:#dfff57;background:var(--paper);color:var(--ink);padding:64px 24px 72px;font-family:Arial,Helvetica,sans-serif}
 .rr-blog *{box-sizing:border-box}
 .rr-blog a{color:inherit;text-underline-offset:5px;text-decoration-thickness:1px}
 .rr-blog a:hover{color:var(--blue)}
