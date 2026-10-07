@@ -19,6 +19,8 @@ jobs:
         run: php scripts/test-vigie-record.php
       - name: Vérifier le référencement personnel
         run: php scripts/test-seo.php
+      - name: Vérifier l’import des articles LibreOffice
+        run: php scripts/test-article-import.php
       - name: Construire le thème installable
         run: python3 scripts/package-theme.py
   release:

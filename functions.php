@@ -1,12 +1,13 @@
 <?php
 defined('ABSPATH') || exit;
-define('MARANDA_THEME_VERSION', '0.1.35');
+define('MARANDA_THEME_VERSION', '0.1.36');
 require_once get_theme_file_path('inc/vigie-record.php');
 require_once get_theme_file_path('inc/personal-note.php');
 require_once get_theme_file_path('inc/github-updates.php');
 require_once get_theme_file_path('inc/seo.php');
 require_once get_theme_file_path('inc/home-vigies.php');
 require_once get_theme_file_path('inc/blog-article.php');
+require_once get_theme_file_path('inc/article-import.php');
 /* Contact already contains the form; the Vigie archive has its own invitation. */
 add_filter('render_block_core/group', static function (string $html, array $block): string {
     $classes = preg_split('/\s+/', $block['attrs']['className'] ?? '') ?: [];
