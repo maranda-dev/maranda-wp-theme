@@ -1,6 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
-define('MARANDA_THEME_VERSION', '0.1.28');
+define('MARANDA_THEME_VERSION', '0.1.29');
 require_once get_theme_file_path('inc/vigie-record.php');
 require_once get_theme_file_path('inc/personal-note.php');
 require_once get_theme_file_path('inc/github-updates.php');
@@ -352,7 +352,7 @@ add_action('wp_enqueue_scripts', static function () {
 .card__infra[data-astro-cid-oqe7gpm4] { margin: 0px; color: rgb(105, 115, 110); font-size: 0.62rem; font-weight: 900; text-transform: uppercase; }
 h3[data-astro-cid-oqe7gpm4] { margin: 0.2rem 0px; font-family: var(--font-display); font-size: 1.15rem; text-transform: uppercase; }
 .card__period[data-astro-cid-oqe7gpm4] { margin: 0px; color: rgb(105, 115, 110); font-size: 0.68rem; text-transform: uppercase; }
-.card__summary[data-astro-cid-oqe7gpm4] { min-height: 5.4rem; margin: 1rem 0px; color: rgb(48, 55, 51); font-size: 0.78rem; line-height: 1.45; }
+.card__summary[data-astro-cid-oqe7gpm4] { min-height: 5.4rem; margin: 1rem 0px; color: rgb(48, 55, 51); font-size: 16px; line-height: 1.6; }
 dl[data-astro-cid-oqe7gpm4] { display: grid; gap: 0.4rem; margin: 0px; padding: 1rem 0px; border-block: 1px solid rgb(224, 228, 225); }
 dl[data-astro-cid-oqe7gpm4] div[data-astro-cid-oqe7gpm4] { display: flex; justify-content: space-between; gap: 1rem; }
 dt[data-astro-cid-oqe7gpm4] { color: rgb(112, 122, 117); font-size: 0.58rem; text-transform: uppercase; }
@@ -390,6 +390,7 @@ a[data-astro-cid-oqe7gpm4] span[data-astro-cid-oqe7gpm4] { font-size: 1rem; }
 .listing[data-astro-cid-h2cqd4en] > .vigie-nature[data-astro-cid-h2cqd4en] h2 { max-width: 54rem; }
 .listing[data-astro-cid-h2cqd4en] > .vigie-nature[data-astro-cid-h2cqd4en] p { max-width: 58rem; margin: 0px 0px 1rem; text-align: left; font-size: 1rem; }
 .listing[data-astro-cid-h2cqd4en] > .vigie-nature[data-astro-cid-h2cqd4en] .eyebrow { font-size: 0.78rem; }
+.rr-vigie .listing > .vigie-nature[data-astro-cid-h2cqd4en] p:not(.eyebrow) { font-size: 18px; line-height: 1.6; text-align: left; }
 .card dd { font-weight: 800; }
 .vigie-editorial { margin-block: 4rem; padding: 2rem; background: rgb(238, 241, 239); }
 .vigie-editorial p { max-width: 58rem; }
