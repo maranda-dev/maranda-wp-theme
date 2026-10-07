@@ -31,3 +31,13 @@
 .mm-editable-content{display:contents}.mm-editable-content.mm-editable-content>*{margin-block-start:0}
 
 .mm-privacy-content.mm-privacy-content>h2{margin-block-start:46px}
+
+/* Give the home section markers a coloured rail beside their content. */
+body.home .mm-main .mm-wrap:not(.mm-hero):has(> .mm-eyebrow){position:relative;padding-left:clamp(240px,18vw,320px);padding-top:56px;padding-bottom:56px;min-height:260px}
+body.home .mm-main .mm-wrap:not(.mm-hero):has(> .mm-eyebrow)> .mm-eyebrow{position:absolute;inset:0 auto 0 0;width:clamp(200px,15vw,272px);margin:0;padding:40px 24px;background:var(--mm-rust);color:#fff;line-height:1.7;border-left:6px solid var(--mm-ink)}
+body.home .mm-now:has(> .mm-wrap > .mm-eyebrow){padding-block:0}
+body.home .mm-main .mm-wrap:not(.mm-hero):has(> .mm-eyebrow)>h2{margin-top:0}
+@media(max-width:650px){
+body.home .mm-main .mm-wrap:not(.mm-hero):has(> .mm-eyebrow){padding:0 0 36px;min-height:0}
+body.home .mm-main .mm-wrap:not(.mm-hero):has(> .mm-eyebrow)> .mm-eyebrow{position:static;width:100%;padding:18px 20px;margin:0 0 28px}
+}
