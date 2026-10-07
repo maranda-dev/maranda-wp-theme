@@ -1,6 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
-define('MARANDA_THEME_VERSION', '0.1.29');
+define('MARANDA_THEME_VERSION', '0.1.30');
 require_once get_theme_file_path('inc/vigie-record.php');
 require_once get_theme_file_path('inc/personal-note.php');
 require_once get_theme_file_path('inc/github-updates.php');
@@ -26,6 +26,7 @@ add_action('after_setup_theme', static function () {
 });
 add_action('wp_enqueue_scripts', static function () {
     wp_enqueue_style('maranda', get_theme_file_uri('assets/maranda.css'), [], MARANDA_THEME_VERSION);
+    if (is_404()) wp_enqueue_style('maranda-404', get_theme_file_uri('assets/maranda-404.css'), ['maranda'], MARANDA_THEME_VERSION);
     if (is_singular('post')) wp_enqueue_style('maranda-blog-article', get_theme_file_uri('assets/blog.css'), ['maranda'], MARANDA_THEME_VERSION);
     if (is_front_page()) {
         wp_enqueue_style('maranda-home-road', get_theme_file_uri('assets/home-road.css'), ['maranda'], MARANDA_THEME_VERSION);
