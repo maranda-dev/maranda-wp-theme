@@ -72,7 +72,7 @@ document.querySelectorAll('[data-inspekt-map]').forEach(root => {
     const context=[report.municipalityOrSector,report.date,report.rtss].filter(Boolean).join(' · ');if(context) body.append(el('p',context,'rr-map-detail__meta'));
     body.append(el('span',report.stageLabel,'rr-map-detail__stage'));
     const link=el('a','Voir le rapport public →','rr-map-detail__link');link.href=report.reportUrl;link.target='_blank';link.rel='noopener noreferrer';body.append(link);
-    detail.append(body);detail.hidden=false;if(focusClose)close.focus({preventScroll:true});
+    detail.append(body);detail.hidden=false;detail.scrollTop=0;if(focusClose)close.focus({preventScroll:true});
   }
 
   function renderGroups(){

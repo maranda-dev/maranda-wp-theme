@@ -107,3 +107,11 @@ body:has(.rr-interactive-map) .rr-interactive-map { min-height:100dvh; font-fami
 /* Give the map the available page width while keeping reading sections narrow. */
 .mm-wrap.mm-map-section{width:calc(100% - 3rem);max-width:none;margin-inline:auto}
 @media(max-width:760px){.mm-wrap.mm-map-section{width:calc(100% - 2rem)}}
+
+/* Keep the complete report inside its own vertical scrolling panel. */
+.rr-map-detail,.rr-map-detail *{box-sizing:border-box}
+.rr-map-detail{overflow-x:hidden;overflow-y:auto;scrollbar-gutter:stable;overscroll-behavior:contain}
+.rr-map-detail__head{position:sticky;top:0;z-index:1}
+.rr-map-detail__body{min-width:0;overflow-wrap:anywhere}
+.rr-map-detail img{height:auto;aspect-ratio:auto;object-fit:contain}
+.rr-map-detail__link{white-space:normal;gap:12px}
