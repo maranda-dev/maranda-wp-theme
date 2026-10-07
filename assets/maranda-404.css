@@ -1,9 +1,9 @@
 /* Adapted from the former theme's 404: keep the current title and layout. */
 .mm-404-head h1 { overflow: visible; }
-.mm-404-glitch { position: relative; display: inline-block; animation: mm404-shake .32s steps(2) infinite; }
+.mm-404-glitch { position: relative; display: inline-block; animation: mm404-shake .64s steps(2) infinite; }
 .mm-404-glitch::before,.mm-404-glitch::after { content: attr(data-text) / ""; position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-.mm-404-glitch::before { color: #00a9c0; text-shadow: -2px 0 #00a9c0; animation: mm404-glitch-top 1.1s steps(11) infinite alternate-reverse; }
-.mm-404-glitch::after { color: #095797; text-shadow: 2px 0 #095797; animation: mm404-glitch-bottom 1.4s steps(13) infinite alternate-reverse; }
+.mm-404-glitch::before { color: #00a9c0; text-shadow: -2px 0 #00a9c0; animation: mm404-glitch-top 2.2s steps(11) infinite alternate-reverse; }
+.mm-404-glitch::after { color: #095797; text-shadow: 2px 0 #095797; animation: mm404-glitch-bottom 2.8s steps(13) infinite alternate-reverse; }
     @keyframes mm404-shake {
         0%   { transform: translate(0, 0) skewX(0deg); }
         25%  { transform: translate(-2px, 1px) skewX(-3deg); }
