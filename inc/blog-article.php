@@ -82,3 +82,10 @@ add_shortcode('maranda_blog_article', 'maranda_blog_article');
 add_action('init', static function (): void {
     register_block_type('maranda/blog-article', ['render_callback' => 'maranda_blog_article']);
 });
+
+/* Present the introductory context of this article as a paper clipping. */
+add_filter('the_content', static function (string $content): string {
+    if (!is_singular('post') || get_post_field('post_name', get_the_ID()) !== 'parlons-sante-mentale-aujourdhui') return $content;
+    if (str_contains($content, 'rr-blog-paper')) return $content;
+    return preg_replace('~\A(\s*(?:<!--.*?-->\s*)*)(<p\b[^>]*>.*?</p>\s*(?:<!--.*?-->\s*)*<p\b[^>]*>.*?</p>\s*(?:<!--.*?-->\s*)*<p\b[^>]*>.*?</p>)~s', '$1<div class="rr-blog-paper">$2</div>', $content, 1) ?? $content;
+}, 20);
