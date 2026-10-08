@@ -77,8 +77,9 @@
 
 .rr-blog__comments{max-width:780px;margin:60px auto 0}.rr-blog__comments .wp-block-comments-title{font-size:32px}.rr-blog__comments input,.rr-blog__comments textarea{max-width:100%}
 
-/* Torn paper: the decoration stays behind selectable article text. */
-.rr-blog__body .rr-blog-paper{position:relative;isolation:isolate;margin:12px 0 52px;padding:38px 40px;filter:drop-shadow(2px 7px 5px #172e3d25)}
-.rr-blog__body .rr-blog-paper::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(132deg,transparent 23%,#b5b3aa18 24%,#fff9 25%,transparent 27%),linear-gradient(38deg,transparent 46%,#a8a69d20 47%,#fff9 48%,transparent 50%),linear-gradient(165deg,transparent 64%,#aaa79e20 65%,#fff9 66%,transparent 68%),linear-gradient(82deg,#f4f2ec,#fffef9 38%,#eeece5 39%,#fffef9 41%,#f7f5ef);clip-path:polygon(0 3%,3% 1%,7% 2%,11% 0,16% 2%,21% 1%,26% 3%,32% 1%,38% 2%,45% 0,51% 2%,58% 1%,65% 3%,72% 1%,79% 2%,86% 0,93% 2%,99% 1%,100% 9%,99% 18%,100% 28%,99% 38%,100% 49%,99% 60%,100% 72%,99% 83%,100% 96%,95% 98%,89% 97%,82% 100%,75% 98%,68% 99%,60% 97%,53% 100%,46% 98%,39% 99%,32% 97%,25% 100%,18% 98%,11% 99%,5% 97%,1% 99%,0 90%,1% 81%,0 72%,1% 61%,0 50%,1% 39%,0 28%,1% 17%)}
+/* Photographic paper clipping behind selectable article text. */
+.rr-blog__body .rr-blog-paper{position:relative;isolation:isolate;margin:12px 0 52px;padding:64px 42px;filter:drop-shadow(2px 7px 5px #172e3d25)}
+.rr-blog__body .rr-blog-paper::before{content:"";position:absolute;inset:0;z-index:-1;background:url('paper-clipping.webp') center/100% 100% no-repeat}
 .rr-blog__body .rr-blog-paper p:last-child{margin-bottom:0}
-@media(max-width:640px){.rr-blog__body .rr-blog-paper{padding:28px 22px;margin-bottom:36px}}
+.rr-blog__body .rr-blog-paper p:empty{display:none}
+@media(max-width:640px){.rr-blog__body .rr-blog-paper{padding:64px 24px;margin-bottom:36px}}
