@@ -1,6 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
-define('MARANDA_THEME_VERSION', '0.1.39');
+define('MARANDA_THEME_VERSION', '0.1.40');
 require_once get_theme_file_path('inc/vigie-record.php');
 require_once get_theme_file_path('inc/personal-note.php');
 require_once get_theme_file_path('inc/github-updates.php');
@@ -8,6 +8,11 @@ require_once get_theme_file_path('inc/seo.php');
 require_once get_theme_file_path('inc/home-vigies.php');
 require_once get_theme_file_path('inc/blog-article.php');
 require_once get_theme_file_path('inc/article-import.php');
+/* Record public visits with Umami, excluding theme and page previews. */
+add_action('wp_head', static function () {
+    if (is_admin() || maranda_seo_preview()) return;
+    echo '<script defer src="https://cloud.umami.is/script.js" data-website-id="effb6af7-1e1d-4d1b-a7d9-fae400b41e21"></script>' . "\n";
+});
 /* Contact already contains the form; the Vigie archive has its own invitation. */
 add_filter('render_block_core/group', static function (string $html, array $block): string {
     $classes = preg_split('/\s+/', $block['attrs']['className'] ?? '') ?: [];

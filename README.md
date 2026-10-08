@@ -8,6 +8,12 @@ Installer le ZIP de la release : il contient le dossier `bsir-wordpress`, identi
 ## Contact
 Le destinataire est l’adresse d’administration configurée dans WordPress. Elle n’est pas exposée dans la page publique. Le formulaire comprend une signature, un champ piège et une limitation des envois.
 
+## Statistiques
+Le thème charge le script Umami Cloud sur les pages publiques avec l’identifiant
+`effb6af7-1e1d-4d1b-a7d9-fae400b41e21`. Les prévisualisations de pages et de thèmes
+sont exclues. Éviter d’ajouter le même script dans une extension pour ne pas compter
+les visites deux fois.
+
 ## Vigies
 Le type mm_vigie et ses taxonomies sont exposés dans l’administration et l’API WordPress. Les champs rr_vigie_* permettent de renseigner catégorie, infrastructure, territoire, période, statut, vérification et crédit image. Les nouvelles fiches alimentent automatiquement la grille.
 
