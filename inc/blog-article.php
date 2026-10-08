@@ -87,5 +87,5 @@ add_action('init', static function (): void {
 add_filter('the_content', static function (string $content): string {
     if (!is_singular('post') || get_post_field('post_name', get_the_ID()) !== 'parlons-sante-mentale-aujourdhui') return $content;
     if (str_contains($content, 'rr-blog-paper')) return $content;
-    return preg_replace('~\A(\s*(?:<!--.*?-->\s*)*)(<p\b[^>]*>.*?</p>\s*(?:<!--.*?-->\s*)*<p\b[^>]*>.*?</p>\s*(?:<!--.*?-->\s*)*<p\b[^>]*>.*?</p>)~s', '$1<div class="rr-blog-paper">$2</div>', $content, 1) ?? $content;
+    return preg_replace('~\A(.*?)(?=<h2\b|<!-- wp:heading)~s', '<div class="rr-blog-paper">$1</div>', $content, 1) ?? $content;
 }, 20);
