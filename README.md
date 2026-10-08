@@ -52,6 +52,13 @@ la base WordPress vers le dépôt.
 
 
 ## Modifier les pages
+
+### Papier fripé dans les articles
+Sélectionner les paragraphes à encadrer dans l’éditeur WordPress, les regrouper dans
+un bloc **Groupe**, puis choisir **Styles → Papier fripé** dans les réglages du bloc.
+Le fond apparaît dans l’éditeur et sur le site; le texte reste modifiable.
+Choisir le style par défaut pour retirer l’effet. L’encadré de l’article
+« Parlons santé mentale aujourd’hui » conserve son affichage existant.
 Depuis la version 0.1.7, les textes et sections de l’accueil, À propos, Profil professionnel, Projets et InspeKT sont des blocs enregistrés dans les pages WordPress. Les modifier dans **Pages → Modifier**, sans remplacer leur modèle. La page Blog permet de modifier son introduction ; la liste des articles reste gérée par le thème. La notice de confidentialité est également dans le contenu de sa page.
 
 Les mises à jour du thème ne réécrivent pas les contenus des pages. Les fichiers `data/editable-pages/` conservent seulement les blocs initiaux de référence pour une nouvelle installation ; aucune migration automatique ne remplace les modifications de l’utilisateur. Contact, carte et vigies gardent leur fonctionnement spécialisé.

@@ -76,10 +76,3 @@
 .rr-blog__bio blockquote{margin:10px 0;padding-left:14px;border-left:3px solid var(--blue)}
 
 .rr-blog__comments{max-width:780px;margin:60px auto 0}.rr-blog__comments .wp-block-comments-title{font-size:32px}.rr-blog__comments input,.rr-blog__comments textarea{max-width:100%}
-
-/* Photographic paper clipping behind selectable article text. */
-.rr-blog__body .rr-blog-paper{position:relative;isolation:isolate;margin:12px 0 52px;padding:64px 42px;filter:drop-shadow(2px 7px 5px #172e3d25)}
-.rr-blog__body .rr-blog-paper::before{content:"";position:absolute;inset:0;z-index:-1;background:url('paper-clipping.webp') center/100% 100% no-repeat}
-.rr-blog__body .rr-blog-paper p:last-child{margin-bottom:0}
-.rr-blog__body .rr-blog-paper p:empty{display:none}
-@media(max-width:640px){.rr-blog__body .rr-blog-paper{padding:64px 24px;margin-bottom:36px}}

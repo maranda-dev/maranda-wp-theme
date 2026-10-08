@@ -81,11 +81,19 @@ function maranda_blog_article(): string {
 add_shortcode('maranda_blog_article', 'maranda_blog_article');
 add_action('init', static function (): void {
     register_block_type('maranda/blog-article', ['render_callback' => 'maranda_blog_article']);
+    register_block_style('core/group', [
+        'name' => 'maranda-paper',
+        'label' => __('Papier fripé', 'maranda'),
+    ]);
+});
+/* Share the paper treatment between the public site and the block editor. */
+add_action('enqueue_block_assets', static function (): void {
+    wp_enqueue_style('maranda-paper', get_theme_file_uri('assets/paper.css'), [], MARANDA_THEME_VERSION);
 });
 
 /* Present the introductory context of this article as a paper clipping. */
 add_filter('the_content', static function (string $content): string {
     if (!is_singular('post') || get_post_field('post_name', get_the_ID()) !== 'parlons-sante-mentale-aujourdhui') return $content;
-    if (str_contains($content, 'rr-blog-paper')) return $content;
+    if (str_contains($content, 'rr-blog-paper') || str_contains($content, 'is-style-maranda-paper')) return $content;
     return preg_replace('~\A(.*?)(?=<h2\b|<!-- wp:heading)~s', '<div class="rr-blog-paper">$1</div>', $content, 1) ?? $content;
 }, 20);

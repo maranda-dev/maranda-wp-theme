@@ -1,0 +1,13 @@
+/* Photographic paper behind editable, selectable text. */
+.rr-blog__body .rr-blog-paper,
+.wp-block-group.is-style-maranda-paper{position:relative;isolation:isolate;margin:12px 0 52px;padding:64px 42px;filter:drop-shadow(2px 7px 5px #172e3d25);color:#202729}
+.rr-blog__body .rr-blog-paper::before,
+.wp-block-group.is-style-maranda-paper::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('paper-clipping.webp') center/100% 100% no-repeat}
+.rr-blog__body .rr-blog-paper p:last-child,
+.wp-block-group.is-style-maranda-paper p:last-child{margin-bottom:0}
+.rr-blog__body .rr-blog-paper p:empty,
+.wp-block-group.is-style-maranda-paper p:empty{display:none}
+@media(max-width:640px){
+    .rr-blog__body .rr-blog-paper,
+    .wp-block-group.is-style-maranda-paper{padding:64px 24px;margin-bottom:36px}
+}
